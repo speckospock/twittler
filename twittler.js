@@ -65,6 +65,7 @@ var newTweet = function(){
   if (streams.users[visitor] === undefined) { streams.users[visitor] = []; }
   message = $('#message').val();
   writeTweet(message);
+  $('#message').val('');
 }
 
 $(document).ready(function(){

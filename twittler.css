@@ -26,6 +26,12 @@ div#tweetbar{
   border-radius: 5px;
   padding: 7px;
   text-align: center;
+  font-size: 15px;
+}
+
+#intro{
+  font-size: 18px;
+  font-style: italic;
 }
 
 div.tweetlist{
