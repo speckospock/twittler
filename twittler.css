@@ -5,7 +5,7 @@ body{
   overflow: auto;
 }
 
-div:not(tweetlist):not(#banner):not(#slug){
+div:not(tweetlist):not(#banner):not(#slug):not(#tweetbar){
   border-bottom: 1px solid black;
   margin: 5px;
   padding-top: 10px;
@@ -13,6 +13,19 @@ div:not(tweetlist):not(#banner):not(#slug){
   padding-left: 10px;
   padding-right: 10px;
   height: auto;
+}
+
+div#tweetbar{
+  position: relative;
+  left: 15.5%;
+  width: 70%;
+  margin-bottom: 1%;
+  margin-top: 2%;
+  color: black;
+  background: #cbcdcc;
+  border-radius: 5px;
+  padding: 7px;
+  text-align: center;
 }
 
 div.tweetlist{
@@ -27,6 +40,10 @@ div.tweetlist{
   border: 10px solid #4F84C4;
 }
 
+#message{
+  
+}
+
 #banner{
   font-family: Amiko;
   position:relative;
@@ -38,13 +55,13 @@ div.tweetlist{
   padding-bottom: 5px;
   width: 80%;
   text-align: center;
-  font-size: xx-large;
+  font-size: 50px;
   background: #cbcdcc;
   border-radius: 10px;
 }
 
 #slug{
-  font-size: small;
+  font-size: 20px;
   font-style: italic;
   color: white;
 }

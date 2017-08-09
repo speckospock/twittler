@@ -2,9 +2,10 @@ var selected = false;
 var selection = '';
 var $body = $('body');
 var $list = $('body').find('.tweetlist');
+var visitor = "";
+var message = "";
 
 var showTweets = function() {
-  //$body.html('');
   $('.tweetlist').html('');
   streams.home.forEach(function(thing){
     displayTweet(thing);
@@ -21,19 +22,15 @@ var displayTweet = function(tweet) {
                      +"<span class = 'tweettext'> " + tweet.message + "</span>"
                      +"<span class = 'timestamp'> - " + tweet.prettyCreatedAt + "</span>";
   $tweet.addClass(tweet.user);
-  //$tweet.addClass('tweet');
   $tweet.html(tweetContent);
   //$tweet.text('@' + tweet.user + ': ' + tweet.message + ' - ' + tweet.prettyCreatedAt);
   //$tweet.prependTo($body.find('.tweetlist'));
   $tweet.prependTo($list);
   tweet.loaded = true;
-
-  //console.log($tweet);
 }
 
 var refreshTweets = function() {
   var newTweets = streams.home;
-  //$body.html('');
   $list.html('');
   if (selected) {
     newTweets = newTweets.filter(function(theTweet){
@@ -51,9 +48,6 @@ var selectUser = function() {
   var $classy = "." + $(this).parent().attr('class');
 
   if (selected === false){
-    //$body.children().not($classy).hide();
-    //$body.children().not($classy).hide();
-    //$body.find($classy).show();
     $list.children().not($classy).hide();
     $list.find($classy).show();
     selected = true;
@@ -61,10 +55,16 @@ var selectUser = function() {
   } else {
     selected = false;
     selection = '';
-    //$body.children().show();
     $list.children().show();
   }
   refreshTweets();
+}
+
+var newTweet = function(){
+  visitor = $('#user').val();
+  if (streams.users[visitor] === undefined) { streams.users[visitor] = []; }
+  message = $('#message').val();
+  writeTweet(message);
 }
 
 $(document).ready(function(){
