@@ -1,11 +1,11 @@
-body{
+body {
   background: #e5e6e6;
   color: white;
   font-family: Scope One;
   overflow: auto;
 }
 
-div:not(tweetlist):not(#banner):not(#slug):not(#tweetbar){
+div:not(tweetlist):not(#banner):not(#slug):not(#tweetbar) {
   border-bottom: 1px solid black;
   margin: 5px;
   padding-top: 10px;
@@ -15,7 +15,7 @@ div:not(tweetlist):not(#banner):not(#slug):not(#tweetbar){
   height: auto;
 }
 
-div#tweetbar{
+div#tweetbar {
   position: relative;
   left: 15.5%;
   width: 70%;
@@ -29,30 +29,28 @@ div#tweetbar{
   font-size: 15px;
 }
 
-#intro{
+#intro {
   font-size: 18px;
   font-style: italic;
 }
 
-div.tweetlist{
+div.tweetlist {
   position: relative;
   left: 14%;
   background: #898E8C;
   background-size: contain;
-  color:white;
+  color: white;
   width: 70%;
   text-align: left;
   border-radius: 5px;
   border: 10px solid #4F84C4;
 }
 
-#message{
-  
-}
+#message {}
 
-#banner{
+#banner {
   font-family: Amiko;
-  position:relative;
+  position: relative;
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 2%;
@@ -66,17 +64,17 @@ div.tweetlist{
   border-radius: 10px;
 }
 
-#slug{
+#slug {
   font-size: 20px;
   font-style: italic;
   color: white;
 }
 
-#logo{
-  color:black;
+#logo {
+  color: black;
 }
 
-span.username{
+span.username {
   color: #3366ff;
   font-weight: bold;
   font-variant: small-caps;
@@ -84,13 +82,15 @@ span.username{
   padding-right: 5px;
   padding-left: 10px;
 }
-span.tweettext{
-   text-shadow:;
+
+span.tweettext {
+  text-shadow: ;
   text-size: 16px;
 }
-span.timestamp{
-  position:absolute;
-  right:0;
+
+span.timestamp {
+  position: absolute;
+  right: 0;
   font-style: italic;
   font-size: smaller;
   padding-right: 24px;
