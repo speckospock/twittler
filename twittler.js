@@ -1,37 +1,40 @@
 var selected = false;
 var selection = '';
 var $body = $('body');
+var $list = $('body').find('.tweetlist');
 
 var showTweets = function() {
-
-  $body.html('');
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    displayTweet(streams.home[index]);
-    index -= 1;
-  }
+  //$body.html('');
+  $('.tweetlist').html('');
+  streams.home.forEach(function(thing){
+    displayTweet(thing);
+  });
   $('.username').on('click', selectUser);
 }
 
 var displayTweet = function(tweet) {
-  if (tweet.loaded !== true){
-    var $tweet = $('<div></div>');
-    tweet.prettyCreatedAt = moment(tweet.created_at).fromNow();
+  var $tweet = $('<div></div>');
+  $list = $('body').find('.tweetlist');
+  tweet.prettyCreatedAt = moment(tweet.created_at).fromNow();
 
-    var tweetContent = "<span class = 'username'>"+"@" + tweet.user + "</span>"
-                       +": " + tweet.message + " - " + tweet.prettyCreatedAt;
-    $tweet.addClass(tweet.user);
-    $tweet.html(tweetContent);
-    //$tweet.text('@' + tweet.user + ': ' + tweet.message + ' - ' + tweet.prettyCreatedAt);
-    $tweet.prependTo($body);
-    tweet.loaded = true;
-  }
+  var tweetContent = "<span class = 'username'>"+"@" + tweet.user + "</span>"
+                     +"<span class = 'tweettext'> " + tweet.message + "</span>"
+                     +"<span class = 'timestamp'> - " + tweet.prettyCreatedAt + "</span>";
+  $tweet.addClass(tweet.user);
+  //$tweet.addClass('tweet');
+  $tweet.html(tweetContent);
+  //$tweet.text('@' + tweet.user + ': ' + tweet.message + ' - ' + tweet.prettyCreatedAt);
+  //$tweet.prependTo($body.find('.tweetlist'));
+  $tweet.prependTo($list);
+  tweet.loaded = true;
+
+  //console.log($tweet);
 }
 
 var refreshTweets = function() {
-  var newTweets = streams.home.filter(function(theTweet){
-    return theTweet.loaded !== true;
-  });
+  var newTweets = streams.home;
+  //$body.html('');
+  $list.html('');
   if (selected) {
     newTweets = newTweets.filter(function(theTweet){
       return (("." + theTweet.user) === selection);
@@ -48,21 +51,25 @@ var selectUser = function() {
   var $classy = "." + $(this).parent().attr('class');
 
   if (selected === false){
-
-    $body.children().not($classy).hide();
-    $body.find($classy).show();
+    //$body.children().not($classy).hide();
+    //$body.children().not($classy).hide();
+    //$body.find($classy).show();
+    $list.children().not($classy).hide();
+    $list.find($classy).show();
     selected = true;
     selection = $classy;
   } else {
     selected = false;
     selection = '';
-    $body.children().show();
+    //$body.children().show();
+    $list.children().show();
   }
+  refreshTweets();
 }
 
 $(document).ready(function(){
   showTweets();
 
-  setInterval(refreshTweets, 1000);
+  setInterval(refreshTweets, 2000);
 
 });

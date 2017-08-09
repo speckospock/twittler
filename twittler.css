@@ -1,18 +1,74 @@
 body{
-  background: black;
+  background: #e5e6e6;
   color: white;
   font-family: Scope One;
   overflow: auto;
 }
-div{
-  background: grey;
+
+div:not(tweetlist):not(#banner):not(#slug){
+  border-bottom: 1px solid black;
+  margin: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: auto;
+}
+
+div.tweetlist{
+  position: relative;
+  left: 14%;
+  background: #898E8C;
   background-size: contain;
   color:white;
   width: 70%;
-  padding-right: 15%;
-  padding-left: 15%;
-  text-align: center;
+  text-align: left;
+  border-radius: 5px;
+  border: 10px solid #4F84C4;
 }
+
+#banner{
+  font-family: Amiko;
+  position:relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  width: 80%;
+  text-align: center;
+  font-size: xx-large;
+  background: #cbcdcc;
+  border-radius: 10px;
+}
+
+#slug{
+  font-size: small;
+  font-style: italic;
+  color: white;
+}
+
+#logo{
+  color:black;
+}
+
 span.username{
-  color: blue;
+  color: #3366ff;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: 22px;
+  padding-right: 5px;
+  padding-left: 10px;
+}
+span.tweettext{
+   text-shadow:;
+  text-size: 16px;
+}
+span.timestamp{
+  position:absolute;
+  right:0;
+  font-style: italic;
+  font-size: smaller;
+  padding-right: 24px;
 }
